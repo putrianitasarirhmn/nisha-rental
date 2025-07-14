@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nisha Rental - Rental Mobil Klasik Modern</title>
+    <style>
+      :root {
+        --primary: #ffa500;
+        --dark: #000000;
+        --light: #ffffff;
+        --gray: #f5f5f5;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--dark);
+        line-height: 1.6;
+      }
+
+      header {
+        background-color: var(--dark);
+        color: var(--primary);
+        padding: 1rem 0;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 2rem;
+      }
+
+      nav ul li a {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: var(--light);
+      }
+
+      .hero {
+        height: 500px;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url("https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e5964f57-7017-4589-9fa3-d870c4b32019.png")
+            no-repeat center center/cover;
+        color: var(--light);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 0 1rem;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        color: #ffffff;
+      }
+
+      .hero p {
+        font-size: 1.2rem;
+        max-width: 800px;
+      }
+
+      .search-container {
+        background-color: var(--dark);
+        padding: 2rem 0;
+      }
+
+      .search-box {
+        background-color: var(--light);
+        border-radius: 50px;
+        padding: 0.5rem 1rem;
+        display: flex;
+        align-items: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .search-box input {
+        flex: 1;
+        border: none;
+        outline: none;
+        padding: 0.5rem;
+        font-size: 1rem;
+      }
+
+      .search-box button {
+        background-color: var(--primary);
+        color: var(--dark);
+        border: none;
+        border-radius: 50px;
+        padding: 0.5rem 1.5rem;
+        cursor: pointer;
+        font-weight: 600;
+        transition: background-color 0.3s;
+      }
+
+      .search-box button:hover {
+        background-color: #e69500;
+      }
+
+      .products {
+        padding: 4rem 0;
+      }
+
+      .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        font-size: 2rem;
+        color: var(--dark);
+        position: relative;
+      }
+
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 4px;
+        background-color: var(--primary);
+        margin: 0.5rem auto 0;
+      }
+
+      .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
+      }
+
+      .product-card {
+        background-color: var(--light);
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+      }
+
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .product-image {
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s;
+      }
+
+      .product-card:hover .product-image img {
+        transform: scale(1.1);
+      }
+
+      .product-info {
+        padding: 1.5rem;
+      }
+
+      .product-name {
+        font-size: 1.3rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--dark);
+      }
+
+      .product-price {
+        color: var(--primary);
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .whatsapp-btn {
+        display: inline-block;
+        background-color: #25d366;
+        color: white;
+        text-decoration: none;
+        padding: 0.7rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        transition: background-color 0.3s;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+      }
+
+      .whatsapp-btn:hover {
+        background-color: #128c7e;
+      }
+
+      footer {
+        background-color: var(--dark);
+        color: var(--light);
+        padding: 2rem 0;
+        text-align: center;
+      }
+
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .copyright {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        color: var(--primary);
+      }
+
+      .socialicons a {
+        margin-top: 1rem 0;
+        margin: 1rem;
+        color: #fff;
+      }
+
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          text-align: center;
+        }
+
+        nav ul {
+          margin-top: 1rem;
+          justify-content: center;
+        }
+
+        nav ul li {
+          margin: 0 1rem;
+        }
+
+        .hero h1 {
+          font-size: 2rem;
+        }
+
+        .products-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">Nisha Rental Mobil</div>
+          <nav>
+            <ul>
+              <li><a href="#">Beranda</a></li>
+              <li><a href="#products">Produk</a></li>
+              <li>
+                <a href="https://wa.me/6285240601351?text=kontak%20saya"
+                  >Kontak</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1>Rental Mobil SOPPENG</h1>
+      <p>
+        kami hadir untuk segala kebutuhan perjalanan Anda. Kualitas terbaik
+        dengan harga kompetitif.
+      </p>
+      <p>- Lepas Kunci - Bisa Pakai Supir - Kendaraan Aman & Amanah</p>
+    </section>
+
+    <section class="search-container">
+      <div class="container">
+        <div class="search-box">
+          <input type="text" placeholder="Cari mobil..." id="searchInput" />
+          <button onclick="searchProducts()">Cari</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="products" id="products">
+      <div class="container">
+        <h2 class="section-title">Daftar Mobil Tersedia</h2>
+        <div class="products-grid" id="productsGrid">
+          <!-- Product cards will be generated here -->
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="logo">Nisha Rental Mobil</div>
+          <div class="copyright">
+            © 2025 Created by putrianitasarirhmn. All rights reserved.
+          </div>
+
+          <div class="socialicons">
+            <a
+              href="https://wa.me/6285240601351?text=kontak%20saya"
+              aria-label="WhatsApp"
+              ><i class="fab fa-whatsapp"> </i
+            ></a>
+            <a
+              href="https://www.tiktok.com/@bosssotosoppeng"
+              aria-label="Tiktok"
+              ><i class="fab fa-tiktok"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/nisharentalmobil/"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+
+    <script>
+      // Sample product data
+      const products = [
+        {
+          id: 1,
+          name: "Toyota Avanza Veloz Putih",
+          image: "img/mobil1.jpg",
+          alt: "Toyota Avanza Veloz Putih dengan garis kuning oranye klasik, mobil sport vintage dengan spoiler belakang",
+          price: "Rp 350.000/hari",
+          whatsapp:
+            "https://wa.me/6285240601351?text=Saya%20tertarik%20untuk%20menyewa%20Toyota%20Veloz%20Putih",
+        },
+        {
+          id: 2,
+          name: "Toyota Avanza Veloz Silver",
+          image: "img/mobil2.jpg",
+          alt: "Toyota Avanza Veloz Silver dengan aksen kuning oranye, mobil legendaris dengan performa tinggi",
+          price: "Rp 350.000/hari",
+          whatsapp:
+            "https://wa.me/6285240601351?text=Saya%20tertarik%20untuk%20menyewa%20Toyota%20Veloz%20Silver",
+        },
+        {
+          id: 3,
+          name: "Toyota Agya 1.2",
+          image: "img/mobil3.jpg",
+          alt: "Toyota Agya 1.2 dengan detailing kuning dengan desain aerodinamis",
+          price: "Rp 300.000/hari",
+          whatsapp:
+            "https://wa.me/6285240601351?text=Saya%20tertarik%20untuk%20menyewa%20Toyota%20Agya",
+        },
+      ];
+
+      // Display products
+      function displayProducts(productsToShow) {
+        const productsGrid = document.getElementById("productsGrid");
+        productsGrid.innerHTML = "";
+
+        productsToShow.forEach((product) => {
+          const productCard = document.createElement("div");
+          productCard.className = "product-card";
+          productCard.innerHTML = `
+                    <div class="product-image">
+                        <img src="${product.image}" alt="${product.alt}" onclick="window.open('${product.whatsapp}', '_blank')">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="product-price">${product.price}</p>
+                        <a href="${product.whatsapp}" class="whatsapp-btn">Hubungi via WhatsApp</a>
+                    </div>
+                `;
+          productsGrid.appendChild(productCard);
+        });
+      }
+
+      // Search function
+      function searchProducts() {
+        const searchTerm = document
+          .getElementById("searchInput")
+          .value.toLowerCase();
+        const filteredProducts = products.filter((product) =>
+          product.name.toLowerCase().includes(searchTerm)
+        );
+        displayProducts(filteredProducts);
+      }
+
+      // Initialize products on page load
+      window.onload = function () {
+        displayProducts(products);
+      };
+    </script>
+  </body>
+</html>
